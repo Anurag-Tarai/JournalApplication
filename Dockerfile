@@ -1,14 +1,23 @@
-# Use the official OpenJDK base image
-FROM openjdk:17-jdk-alpine
+# Use a base image that includes Java and Maven
+FROM maven:3.8.4-openjdk-17-slim AS build
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the application's jar file into the container
-COPY target/JournalAppPractice-0.0.1-SNAPSHOT.jar app.jar
+# Copy the entire project directory into the container
+COPY . .
+
+# Build the project using Maven
+RUN mvn clean package
 
 # Expose the port that the application will run on
 EXPOSE 8080
+
+# Second stage: Use a smaller base image to run the Java application
+FROM openjdk:17-jdk-alpine
+
+# Copy the jar file from the build stage to the final image
+COPY --from=build /app/target/JournalAppPractice-0.0.1-SNAPSHOT.jar app.jar
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
