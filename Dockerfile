@@ -1,17 +1,14 @@
-# Start with a base image containing Java runtime
+# Use the official OpenJDK base image
 FROM openjdk:17-jdk-alpine
 
-# Add a volume pointing to /tmp
-VOLUME /tmp
+# Set the working directory in the container
+WORKDIR /app
 
-# Make port 8080 available to the world outside this container
+# Copy the application's jar file into the container
+COPY target/JournalAppPractice-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the port that the application will run on
 EXPOSE 8080
 
-# The application's jar file (adjust the path if necessary)
-ARG JAR_FILE=target/JournalAppPractice-0.0.1-SNAPSHOT.jar
-
-# Add the application's jar to the container
-ADD ${JAR_FILE} app.jar
-
 # Run the jar file
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
