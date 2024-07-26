@@ -13,7 +13,7 @@ public class JournalEntryController {
 
     private Map<Long, JournalEntry> journalEntries = new HashMap<>();
 
-    @GetMapping("/all")
+    @GetMapping("get/all")
     public ArrayList<JournalEntry> getJournals(){
         return new ArrayList<>(journalEntries.values());
     }
@@ -22,7 +22,7 @@ public class JournalEntryController {
         journalEntries.put(journal.getId(), journal);
         return true;
     }
-    @GetMapping("/{myid}")
+    @GetMapping("get/{myid}")
     public JournalEntry getJournalById(@PathVariable Long myid){
         return journalEntries.get(myid);
     }
