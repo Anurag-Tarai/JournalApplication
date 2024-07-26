@@ -1,4 +1,4 @@
-package com.anurag.JournalAppPractice.entity;
+package com.anurag.journalapp.entity;
 
 public class JournalEntry {
     private Long id;

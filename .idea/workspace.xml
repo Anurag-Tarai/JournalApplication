@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="" />
+    <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/JournalAppPractice/JournalAppPractice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/JournalAppPractice/controller/HealthCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/HealthCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/JournalAppPractice/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/JournalAppPractice/entity/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/JournalEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/anurag/JournalAppPractice/JournalAppPracticeApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/anurag/journalapp/JournalAppPracticeApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -17,9 +29,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2jmHqBDZFKCo9KzHbq3MeOi71OM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,20 +39,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.JournalApp.executor": "Run",
     "Application.JournalAppPractice.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SpringBootProjects/JournalAppPractice"
+    "last_opened_file_path": "D:/SpringBootProjects/JournalApplication",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SpringBootProjects\JournalApplication" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="JournalAppPractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.anurag.JournalAppPractice.JournalAppPractice" />
+    <configuration name="JournalApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.JournalApp" />
       <module name="JournalAppPractice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.anurag.JournalAppPractice.*" />
+          <option name="PATTERN" value="com.anurag.journalapp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -50,7 +72,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JournalAppPractice" />
+        <item itemvalue="Application.JournalApp" />
       </list>
     </recent_temporary>
   </component>
