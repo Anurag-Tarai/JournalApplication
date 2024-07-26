@@ -4,67 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a245cc9c-66dd-4eaf-90ef-86c6ca238bf0" name="Changes" comment="ResponseEntity Added to Journal Applicaion" />
+    <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.2.7/spring-data-commons-3.2.7.jar!/org/springframework/data/repository/ListCrudRepository.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/4.2.7/spring-data-mongodb-4.2.7.jar!/org/springframework/data/mongodb/repository/MongoRepository.class" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2igo06p2dNj82siz6aSHdmvn7Sz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2jmHqBDZFKCo9KzHbq3MeOi71OM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.FirstProjectJournalApp.executor": "Run",
-    "Application.FirstProjectJournalAppApplication.executor": "Run",
+    "Application.JournalAppPractice.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "51bf2924",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/EngDigest/journalAppByMe/FirstProjectJournalApp",
-    "settings.editor.selected.configurable": "inlay.hints"
+    "last_opened_file_path": "D:/SpringBootProjects/JournalAppPractice"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.myFirstProject.FirstProjectJournalApp.controller" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="FirstProjectJournalApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.myFirstProject.FirstProjectJournalApp.FirstProjectJournalApp" />
-      <module name="FirstProjectJournalApp" />
+    <configuration name="JournalAppPractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.anurag.JournalAppPractice.JournalAppPractice" />
+      <module name="JournalAppPractice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.myFirstProject.FirstProjectJournalApp.*" />
+          <option name="PATTERN" value="com.anurag.JournalAppPractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,60 +50,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FirstProjectJournalApp" />
-        <item itemvalue="Application.FirstProjectJournalApp" />
+        <item itemvalue="Application.JournalAppPractice" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a245cc9c-66dd-4eaf-90ef-86c6ca238bf0" name="Changes" comment="" />
-      <created>1719921354447</created>
+      <changelist id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="" />
+      <created>1721985521887</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1719921354447</updated>
+      <updated>1721985521887</updated>
     </task>
-    <task id="LOCAL-00001" summary="ResponseEntity Added to Journal Applicaion">
-      <option name="closed" value="true" />
-      <created>1721916872439</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1721916872439</updated>
-    </task>
-    <task id="LOCAL-00002" summary="ResponseEntity Added to Journal Applicaion">
-      <option name="closed" value="true" />
-      <created>1721918889968</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1721918889969</updated>
-    </task>
-    <task id="LOCAL-00003" summary="ResponseEntity Added to Journal Applicaion">
-      <option name="closed" value="true" />
-      <created>1721919566736</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1721919566736</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="ResponseEntity Added to Journal Applicaion" />
-    <option name="LAST_COMMIT_MESSAGE" value="ResponseEntity Added to Journal Applicaion" />
   </component>
 </project>
