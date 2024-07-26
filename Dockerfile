@@ -17,7 +17,7 @@ EXPOSE 8080
 FROM openjdk:17-jdk-alpine
 
 # Copy the jar file from the build stage to the final image
-COPY --from=build /app/target/JournalAppPractice-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/JournalAppPractice-0.0.1-SNAPSHOT.jar /app/app.jar
 
-# Run the jar file
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Command to run the Spring Boot application
+CMD ["java", "-jar", "app.jar"]
