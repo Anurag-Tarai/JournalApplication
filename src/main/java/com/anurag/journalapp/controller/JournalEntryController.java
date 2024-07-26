@@ -13,7 +13,7 @@ public class JournalEntryController {
 
     private Map<Long, JournalEntry> journalEntries = new HashMap<>();
 
-    @GetMapping
+    @GetMapping("/all")
     public ArrayList<JournalEntry> getJournals(){
         return new ArrayList<>(journalEntries.values());
     }
@@ -22,16 +22,16 @@ public class JournalEntryController {
         journalEntries.put(journal.getId(), journal);
         return true;
     }
-    @GetMapping("id/{myid}")
+    @GetMapping("/{myid}")
     public JournalEntry getJournalById(@PathVariable Long myid){
         return journalEntries.get(myid);
     }
-    @PutMapping("/id/{myId}")
+    @PutMapping("update/{myId}")
     public Boolean updateJournal(@RequestBody JournalEntry journal, @PathVariable Long myId){
         journalEntries.put(myId, journal);
         return true;
     }
-    @DeleteMapping("id/{myId}")
+    @DeleteMapping("delete/{myId}")
     public JournalEntry deleteJournal(@PathVariable Long myId){
         return journalEntries.remove(myId);
     }

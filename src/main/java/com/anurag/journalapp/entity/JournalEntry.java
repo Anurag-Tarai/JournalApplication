@@ -1,5 +1,6 @@
 package com.anurag.journalapp.entity;
 
+
 public class JournalEntry {
     private Long id;
     private String title;
