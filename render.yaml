@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: journal-application
+    runtime: docker
+    plan: free  # Adjust this based on your requirements
+    repo: https://github.com/Anurag-Tarai/JournalApplication.git
+    branch: main
+    dockerfilePath: Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: JAVA_OPTS
+        value: "-Xmx512m -Xms256m"  # Adjust JVM options as needed

@@ -1,13 +1,13 @@
-package com.anurag.JournalAppPractice;
+package com.anurag.journalapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JournalAppPractice {
+public class JournalApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JournalAppPractice.class, args);
+		SpringApplication.run(JournalApp.class, args);
 	}
 
 }

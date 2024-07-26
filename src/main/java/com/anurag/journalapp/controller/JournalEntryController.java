@@ -1,11 +1,10 @@
-package com.anurag.JournalAppPractice.controller;
+package com.anurag.journalapp.controller;
 
-import com.anurag.JournalAppPractice.entity.JournalEntry;
+import com.anurag.journalapp.entity.JournalEntry;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -36,5 +35,4 @@ public class JournalEntryController {
     public JournalEntry deleteJournal(@PathVariable Long myId){
         return journalEntries.remove(myId);
     }
-
 }
