@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/JournalEntry.java" afterDir="false" />
     </list>
@@ -36,10 +37,10 @@
     "Application.JournalApp.executor": "Run",
     "Application.JournalAppPractice.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SpringBootProjects/JournalApplication",
+    "last_opened_file_path": "/home/anurag/SpringBoot/JournalApplication",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"

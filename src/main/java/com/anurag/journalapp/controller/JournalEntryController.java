@@ -1,6 +1,7 @@
 package com.anurag.journalapp.controller;
 
 import com.anurag.journalapp.entity.JournalEntry;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/journal")
 public class JournalEntryController {
-
-    private Map<Long, JournalEntry> journalEntries = new HashMap<>();
+    JournalEntry journalEntry;
+    private Map<ObjectId , JournalEntry> journalEntries = new HashMap<>();
 
     @GetMapping("get/all")
     public ArrayList<JournalEntry> getJournals(){
@@ -27,7 +28,7 @@ public class JournalEntryController {
         return journalEntries.get(myid);
     }
     @PutMapping("update/{myId}")
-    public Boolean updateJournal(@RequestBody JournalEntry journal, @PathVariable Long myId){
+    public Boolean updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
         journalEntries.put(myId, journal);
         return true;
     }
