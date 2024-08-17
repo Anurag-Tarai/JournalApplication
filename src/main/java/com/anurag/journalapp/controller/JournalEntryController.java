@@ -1,39 +1,41 @@
 package com.anurag.journalapp.controller;
 
 import com.anurag.journalapp.entity.JournalEntry;
+import com.anurag.journalapp.service.JournalEntryService;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("/journal")
 public class JournalEntryController {
-    JournalEntry journalEntry;
-    private Map<ObjectId , JournalEntry> journalEntries = new HashMap<>();
+    @Autowired
+    JournalEntryService journalEntryService;
 
+    @PostMapping("/add")
+    public boolean addJournal(@RequestBody JournalEntry journal){
+       return journalEntryService.addJournal(journal);
+    }
     @GetMapping("get/all")
-    public ArrayList<JournalEntry> getJournals(){
-        return new ArrayList<>(journalEntries.values());
+      public List<JournalEntry> getJournals(){
+        return journalEntryService.findJournal();
     }
-    @PostMapping
-    public Boolean addJournal(@RequestBody JournalEntry journal){
-        journalEntries.put(journal.getId(), journal);
-        return true;
-    }
+
     @GetMapping("get/{myid}")
-    public JournalEntry getJournalById(@PathVariable Long myid){
-        return journalEntries.get(myid);
+    public JournalEntry getJournalById(@PathVariable ObjectId myid){
+        return journalEntryService.findJournalById(myid);
     }
-    @PutMapping("update/{myId}")
-    public Boolean updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
-        journalEntries.put(myId, journal);
-        return true;
-    }
+
     @DeleteMapping("delete/{myId}")
-    public JournalEntry deleteJournal(@PathVariable Long myId){
-        return journalEntries.remove(myId);
+    public boolean deleteJournal(@PathVariable ObjectId myId){
+        return journalEntryService.removeJournalById(myId);
     }
+
+    @PutMapping("update/{myId}")
+    public JournalEntry updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
+        return journalEntryService.updateJournalById(journal, myId);
+    }
+
 }
