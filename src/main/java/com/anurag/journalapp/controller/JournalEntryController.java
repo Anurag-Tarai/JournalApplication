@@ -4,6 +4,7 @@ import com.anurag.journalapp.entity.JournalEntry;
 import com.anurag.journalapp.service.JournalEntryService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,27 +16,26 @@ public class JournalEntryController {
     JournalEntryService journalEntryService;
 
     @PostMapping("/add")
-    public boolean addJournal(@RequestBody JournalEntry journal){
+    public ResponseEntity<JournalEntry> addJournal(@RequestBody JournalEntry journal){
        return journalEntryService.addJournal(journal);
     }
     @GetMapping("get/all")
-      public List<JournalEntry> getJournals(){
+      public ResponseEntity<List<JournalEntry>> getJournals(){
         return journalEntryService.findJournal();
     }
 
     @GetMapping("get/{myid}")
-    public JournalEntry getJournalById(@PathVariable ObjectId myid){
+    public ResponseEntity<JournalEntry> getJournalById(@PathVariable ObjectId myid){
         return journalEntryService.findJournalById(myid);
     }
 
     @DeleteMapping("delete/{myId}")
-    public boolean deleteJournal(@PathVariable ObjectId myId){
+    public ResponseEntity<?> deleteJournal(@PathVariable ObjectId myId){
         return journalEntryService.removeJournalById(myId);
     }
-
+    
     @PutMapping("update/{myId}")
-    public JournalEntry updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
+    public ResponseEntity<?> updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
         return journalEntryService.updateJournalById(journal, myId);
     }
-
 }
