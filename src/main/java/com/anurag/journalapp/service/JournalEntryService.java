@@ -1,11 +1,12 @@
 package com.anurag.journalapp.service;
 
-import com.anurag.journalapp.entity.JournalEntry;
+import com.anurag.journalapp.entity.Journal;
+import com.anurag.journalapp.entity.User;
 import com.anurag.journalapp.repository.JournalEntryRepo;
+import com.anurag.journalapp.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -17,43 +18,52 @@ import java.util.Optional;
 public class JournalEntryService {
 
     @Autowired
-    JournalEntryRepo journalEntryRepo;
+    private JournalEntryRepo journalEntryRepo;
 
-    public ResponseEntity<JournalEntry> addJournal(JournalEntry journal){
+    @Autowired
+    private UserRepository userRepository;
+
+    public ResponseEntity<Journal> addJournal(Journal journal, String userName){
+        User userINdb = userRepository.findByUserName(userName);
        try{
            journal.setDate(LocalDateTime.now());
-           journalEntryRepo.save(journal);
+           Journal save = journalEntryRepo.save(journal);
+           userINdb.getJouranlLists().add(save);
+           userRepository.save(userINdb);
            return new ResponseEntity<>(journal,HttpStatus.CREATED);
        } catch (Exception e) {
            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
        }
     }
 
-    public ResponseEntity<List<JournalEntry>> findJournal(){
-        List<JournalEntry> all = journalEntryRepo.findAll();
+    public ResponseEntity<List<Journal>> findJournal(String userName){
+        List<Journal> all = userRepository.findByUserName(userName).getJouranlLists();
         if(all != null && !all.isEmpty()){
             return new ResponseEntity<>(all, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<JournalEntry> findJournalById(ObjectId myId){
-        Optional<JournalEntry> journalEntry = journalEntryRepo.findById(myId);
+    public ResponseEntity<Journal> findJournalById(ObjectId myId){
+        Optional<Journal> journalEntry = journalEntryRepo.findById(myId);
         if(journalEntry.isPresent()){
             return new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<?> removeJournalById(ObjectId myId) {
-        if (journalEntryRepo.existsById(myId)) {
+    public ResponseEntity<?> removeJournalById(String userName, ObjectId myId) {
+        User userIndb = userRepository.findByUserName(userName);
+        if (journalEntryRepo.existsById(myId)){
             journalEntryRepo.deleteById(myId);
+            userIndb.getJouranlLists().removeIf(x->x.getId().equals(myId));
+            userRepository.save(userIndb);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    public ResponseEntity<?> updateJournalById(JournalEntry newJournal, ObjectId myId) {
-        JournalEntry oldJournal = journalEntryRepo.findById(myId).orElse(null);
+    public ResponseEntity<?> updateJournalById(Journal newJournal, ObjectId myId) {
+        Journal oldJournal = journalEntryRepo.findById(myId).orElse(null);
         if(oldJournal!=null){
             oldJournal.setContent(newJournal.getContent()!=null&&!newJournal.getContent().equals("")? newJournal.getContent() : oldJournal.getContent());
             oldJournal.setTitle(newJournal.getTitle()!=null&&!newJournal.getTitle().equals("")? newJournal.getTitle() : oldJournal.getTitle());
