@@ -1,6 +1,6 @@
 package com.anurag.journalapp.controller;
 
-import com.anurag.journalapp.entity.JournalEntry;
+import com.anurag.journalapp.entity.Journal;
 import com.anurag.journalapp.service.JournalEntryService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,29 +13,32 @@ import java.util.List;
 @RequestMapping("/journal")
 public class JournalEntryController {
     @Autowired
-    JournalEntryService journalEntryService;
+    private JournalEntryService journalEntryService;
 
-    @PostMapping("/add")
-    public ResponseEntity<JournalEntry> addJournal(@RequestBody JournalEntry journal){
-       return journalEntryService.addJournal(journal);
+    @PostMapping("/{userName}/add")
+    public ResponseEntity<Journal> addJournal(@RequestBody Journal journal, @PathVariable String userName){
+       return journalEntryService.addJournal(journal, userName);
     }
-    @GetMapping("get/all")
-      public ResponseEntity<List<JournalEntry>> getJournals(){
-        return journalEntryService.findJournal();
+    @GetMapping("/{userName}/get/all")
+      public ResponseEntity<List<Journal>> getJournals(@PathVariable String userName){
+        return journalEntryService.findJournal(userName);
     }
 
-    @GetMapping("get/{myid}")
-    public ResponseEntity<JournalEntry> getJournalById(@PathVariable ObjectId myid){
+    @GetMapping("get/id/{myid}")
+    public ResponseEntity<Journal> getJournalById(@PathVariable ObjectId myid){
         return journalEntryService.findJournalById(myid);
     }
 
-    @DeleteMapping("delete/{myId}")
-    public ResponseEntity<?> deleteJournal(@PathVariable ObjectId myId){
-        return journalEntryService.removeJournalById(myId);
+    @DeleteMapping("{userName}/delete/{myId}")
+    public ResponseEntity<?> deleteJournal(@PathVariable String userName,@PathVariable ObjectId myId){
+        return journalEntryService.removeJournalById(userName,myId);
     }
     
-    @PutMapping("update/{myId}")
-    public ResponseEntity<?> updateJournal(@RequestBody JournalEntry journal, @PathVariable ObjectId myId){
+    @PutMapping("{userName}/update/{myId}")
+    public ResponseEntity<?> updateJournal(@RequestBody Journal journal,
+                                           @PathVariable ObjectId myId,
+                                           @PathVariable String userName)
+    {
         return journalEntryService.updateJournalById(journal, myId);
     }
 }
