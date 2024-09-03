@@ -23,6 +23,8 @@ public class User {
     @NonNull
     private String password;
 
+    private List<String> roles; // roles mean what the user is authorized to do
+
     @DBRef
     private List<Journal> jouranlLists = new ArrayList<>();
 }
