@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,16 +24,19 @@ public class JournalEntryService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
     public ResponseEntity<Journal> addJournal(Journal journal, String userName){
-        User userINdb = userRepository.findByUserName(userName);
        try{
+           User userINdb = userRepository.findByUserName(userName);
            journal.setDate(LocalDateTime.now());
            Journal save = journalEntryRepo.save(journal);
            userINdb.getJouranlLists().add(save);
            userRepository.save(userINdb);
            return new ResponseEntity<>(journal,HttpStatus.CREATED);
        } catch (Exception e) {
-           return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+           System.out.println(e);
+           throw new RuntimeException("An error occurred while saving the entry", e);
+//           return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
        }
     }
 
