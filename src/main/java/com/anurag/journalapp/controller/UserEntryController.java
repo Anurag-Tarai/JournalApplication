@@ -14,11 +14,6 @@ public class UserEntryController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
-    public User add(@RequestBody User user){
-     return userService.save(user);
-    }
-
     @GetMapping
     public List<User> getAll(){
         return userService.getAll();
