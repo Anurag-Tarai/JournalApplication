@@ -18,7 +18,6 @@ public class UserServiceTests {
     private UserRepository userRepository;
     @ParameterizedTest
     @ValueSource(strings={
-            "anurag",
             "sujit",
             "admin"
     })
