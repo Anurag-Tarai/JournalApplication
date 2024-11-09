@@ -70,10 +70,14 @@ public class JournalEntryService {
         Journal oldJournal = journalEntryRepo.findById(myId).orElse(null);
         if(oldJournal!=null){
             oldJournal.setContent(newJournal.getContent()!=null&&!newJournal.getContent().equals("")? newJournal.getContent() : oldJournal.getContent());
-            oldJournal.setTitle(newJournal.getTitle()!=null&&!newJournal.getTitle().equals("")? newJournal.getTitle() : oldJournal.getTitle());
+            oldJournal.setTitle(newJournal.getTitle()!=null&& !newJournal.getTitle().isEmpty() ? newJournal.getTitle() : oldJournal.getTitle());
             journalEntryRepo.save(oldJournal);
             return new ResponseEntity<>(oldJournal,HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    public List<Journal> all_journal() {
+        return journalEntryRepo.findAll();
     }
 }

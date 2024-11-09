@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/HealthCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/UserEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/UserEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SpringSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/UserEntryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +38,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/3.2.7/spring-boot-autoconfigure-3.2.7.jar!/org/springframework/boot/autoconfigure/security/servlet/SpringBootWebSecurityConfiguration.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.2.7/spring-data-commons-3.2.7.jar!/org/springframework/data/repository/ListCrudRepository.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/6.2.5/spring-security-config-6.2.5.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.2.5/spring-security-core-6.2.5.jar!/org/springframework/security/core/userdetails/UserDetailsService.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.10/spring-web-6.1.10.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -48,23 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.JournalApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JournalAppPractice.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anurag/SpringBoot/SpringFrontEndConnector&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JournalApp.executor": "Run",
+    "Application.JournalAppPractice.executor": "Run",
+    "JUnit.UserServiceTests.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/anurag/main_projects/enics",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="D:\SpringBootProjects\JournalApplication" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -74,7 +91,7 @@
       <recent name="com.anurag.journalapp.entity" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserServiceTests">
     <configuration name="JournalApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.JournalApp" />
       <module name="JournalAppPractice" />
@@ -88,8 +105,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JournalAppPractice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anurag.journalapp.serviceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anurag.journalapp.serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.serviceTests.UserServiceTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTests" />
         <item itemvalue="Application.JournalApp" />
       </list>
     </recent_temporary>
@@ -146,13 +179,9 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java</url>
-          <line>14</line>
-          <properties class="com.anurag.journalapp.controller.PublicController" method="add">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
+          <line>24</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
