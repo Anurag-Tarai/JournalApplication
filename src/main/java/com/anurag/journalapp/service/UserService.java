@@ -4,20 +4,15 @@ import com.anurag.journalapp.entity.Journal;
 import com.anurag.journalapp.entity.User;
 import com.anurag.journalapp.repository.JournalEntryRepo;
 import com.anurag.journalapp.repository.UserRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class UserService {
@@ -25,27 +20,49 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    JournalEntryRepo journalEntryRepo;
+
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public User save(User user) {
+    public ResponseEntity<User> save(User user) {
+        String name = user.getUserName();
+        User newUser = userRepository.findByUserName(name);
+        //if username is already exist
+        if (newUser != null) {
+            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+        }
+        // if user does not exist
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Arrays.asList("USER"));
+        user.setRoles(List.of("USER"));
         userRepository.save(user);
-        return user;
-    }
-
-    public List<User> getAll() {
-        return userRepository.findAll();
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     public ResponseEntity<?> update(User user, String userName) {
         User userInDb = userRepository.findByUserName(userName);
-        if(userInDb != null){
-            userInDb.setUserName(user.getUserName());
-            userInDb.setPassword(user.getPassword());
-            userRepository.save(userInDb);
-            return new ResponseEntity<>(userInDb, HttpStatus.NO_CONTENT);
+        userInDb.setUserName(user.getUserName());
+        userInDb.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(userInDb);
+        return new ResponseEntity<>(userInDb, HttpStatus.NO_CONTENT);
+    }
+
+    public ResponseEntity<?> delete(String userName) {
+        User userInDb = userRepository.findByUserName(userName);
+        List<Journal> all = userRepository.findByUserName(userName).getJouranlLists();
+        for (Journal journal : all) {
+            if (journalEntryRepo.existsById(journal.getId())) {
+                journalEntryRepo.delete(journal);
+            }
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        userRepository.deleteByUserName(userName);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    public ResponseEntity<?> saveAdmin(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(List.of("ADMIN"));
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 }
