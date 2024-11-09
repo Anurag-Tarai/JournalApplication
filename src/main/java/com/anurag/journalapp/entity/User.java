@@ -1,6 +1,8 @@
 package com.anurag.journalapp.entity;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.NonNull;
 import org.bson.types.ObjectId;
@@ -16,6 +18,7 @@ import java.util.List;
 @Data
 public class User {
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
     @Indexed(unique = true)
     @NonNull
