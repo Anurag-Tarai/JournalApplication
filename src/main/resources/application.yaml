@@ -1,0 +1,20 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: JournalAppPractice
+  data:
+    mongodb:
+      uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
+      auto-index-creation: true
+#server:
+#  port: 8081
+
+#  spring.application.name=JournalAppPractice
+#  spring.devtools.restart.enabled=true
+#  spring.data.mongodb.auto-index-creation = true
+#  spring.data.mongodb.uri=mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
+#spring.data.mongodb.database=journal_db
+#spring.data.mongodb.port=27017
+#spring.data.mongodb.host=localhost
