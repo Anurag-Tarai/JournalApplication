@@ -18,10 +18,13 @@ public class PublicController {
 
     @Autowired
     private JournalEntryService journalEntryService;
+
+
     @GetMapping
     public String health_check(){
-        return "ok";
+        return "OK";
     }
+
     @PostMapping("/register")
     public ResponseEntity<User> add(@RequestBody User user){
         return userService.save(user);

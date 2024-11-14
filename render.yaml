@@ -6,7 +6,7 @@ services:
     repo: https://github.com/Anurag-Tarai/JournalApplication.git
     branch: main
     dockerfilePath: Dockerfile
-    healthCheckPath: /
+    healthCheckPath: /public
     envVars:
       - key: JAVA_OPTS
         value: "-Xmx512m -Xms256m"  # Adjust JVM options as needed
