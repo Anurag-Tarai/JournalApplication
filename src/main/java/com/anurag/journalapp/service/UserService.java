@@ -1,68 +1,116 @@
 package com.anurag.journalapp.service;
 
-import com.anurag.journalapp.entity.Journal;
+import com.anurag.journalapp.dto.request.RegisterRequest;
+import com.anurag.journalapp.dto.response.RegisterResponse;
 import com.anurag.journalapp.entity.User;
-import com.anurag.journalapp.repository.JournalEntryRepo;
+import com.anurag.journalapp.enums.UserRole;
 import com.anurag.journalapp.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.EnumSet;
 
-@Component
+
+@Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    JournalEntryRepo journalEntryRepo;
+    private final PasswordEncoder passwordEncoder;
 
-    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
-    public ResponseEntity<User> save(User user) {
-        String name = user.getUserName();
-        User newUser = userRepository.findByUserName(name);
-        //if username is already exist
-        if (newUser != null) {
-            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+
+    // User Register
+    public ResponseEntity<?> register(RegisterRequest request) {
+        String email = request.getEmail().trim().toLowerCase();
+
+        if (userRepository.existsByEmail(email)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Email already in use");
         }
-        // if user does not exist
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(List.of("USER"));
-        userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+
+        String hash = passwordEncoder.encode(request.getPassword());
+
+        User user = User.builder()
+                .email(email)
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .passwordHash(hash)
+                .roles(EnumSet.of(UserRole.USER))
+                .enabled(true)
+                .accountLocked(false)
+                .build();
+
+        User saved = userRepository.save(user);
+
+        RegisterResponse resp = new RegisterResponse(
+                saved.getId() != null ? saved.getId().toHexString() : null,
+                saved.getEmail(),
+                saved.getFirstName(),
+                saved.getLastName()
+        );
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
 
-    public ResponseEntity<?> update(User user, String userName) {
-        User userInDb = userRepository.findByUserName(userName);
-        userInDb.setUserName(user.getUserName());
-        userInDb.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(userInDb);
-        return new ResponseEntity<>(userInDb, HttpStatus.NO_CONTENT);
-    }
+    // Register Admin
+    public ResponseEntity<?> registerAdmin(RegisterRequest request) {
+        String email = request.getEmail().trim().toLowerCase();
 
-    public ResponseEntity<?> delete(String userName) {
-        User userInDb = userRepository.findByUserName(userName);
-        List<Journal> all = userRepository.findByUserName(userName).getJouranlLists();
-        for (Journal journal : all) {
-            if (journalEntryRepo.existsById(journal.getId())) {
-                journalEntryRepo.delete(journal);
-            }
+        if (userRepository.existsByEmail(email)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Email already in use");
         }
-        userRepository.deleteByUserName(userName);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        String hash = passwordEncoder.encode(request.getPassword());
+
+        User user = User.builder()
+                .email(email)
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .passwordHash(hash)
+                .roles(EnumSet.of(UserRole.ADMIN))
+                .enabled(true)
+                .accountLocked(false)
+                .build();
+
+        User saved = userRepository.save(user);
+
+        RegisterResponse resp = new RegisterResponse(
+                saved.getId() != null ? saved.getId().toHexString() : null,
+                saved.getEmail(),
+                saved.getFirstName(),
+                saved.getLastName()
+        );
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
 
-    public ResponseEntity<?> saveAdmin(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(List.of("ADMIN"));
-        userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+
+    // Update Profile Name
+    public ResponseEntity<?> updateProfileName(ObjectId userId, String firstName, String lastName) {
+        return userRepository.findById(userId).map(u -> {
+            u.setFirstName(firstName);
+            u.setLastName(lastName);
+            userRepository.save(u);
+            return ResponseEntity.ok().build(); // 200 OK with no body
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+  // Delete User By Email
+
+    public boolean deleteByEmail(String email) {
+        return userRepository.findByEmail(email.toLowerCase()).map(u -> {
+            userRepository.delete(u); // relies on cascade for journals
+            return true;
+        }).orElse(false);
     }
 }
