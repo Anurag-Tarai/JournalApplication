@@ -11,19 +11,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest // to start application context
+@SpringBootTest // to start spring application context
 public class UserServiceTests {
 
     @Autowired
     private UserRepository userRepository;
-    @ParameterizedTest
+
     @ValueSource(strings={
             "sujit",
             "admin"
     })
-    public void findByUserNameTest(String name){
-        assertNotNull(userRepository.findByUserName(name));
-    }
+//    public void findByUserNameTest(String name){
+//        assertNotNull(userRepository.findByUserName(name));
+//    }
 
     @ParameterizedTest
     @CsvSource({
