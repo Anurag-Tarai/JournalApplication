@@ -1,0 +1,13 @@
+[
+  {"title":"Morning Thoughts","content":"Woke up early, feeling fresh","entryDate":"2025-08-20","visibility":"PRIVATE"},
+  {"title":"Work Progress","content":"Completed API integration for project","entryDate":"2025-08-20","visibility":"PRIVATE"},
+  {"title":"Learning Java","content":"Studied Spring Boot services","entryDate":"2025-08-19","visibility":"PRIVATE"},
+  {"title":"Evening Walk","content":"Took a 30-minute walk","entryDate":"2025-08-19","visibility":"PRIVATE"},
+  {"title":"Gratitude","content":"Thankful for supportive friends","entryDate":"2025-08-18","visibility":"PRIVATE"},
+  {"title":"Daily Reflection","content":"Reviewed tasks and progress","entryDate":"2025-08-18","visibility":"PRIVATE"},
+  {"title":"Health Note","content":"Drank 2 liters of water","entryDate":"2025-08-17","visibility":"PRIVATE"},
+  {"title":"Project Idea","content":"Brainstormed new feature ideas","entryDate":"2025-08-17","visibility":"PRIVATE"},
+  {"title":"Reading","content":"Read 20 pages of a book","entryDate":"2025-08-16","visibility":"PRIVATE"},
+  {"title":"Weekend Plan","content":"Plan to relax and exercise","entryDate":"2025-08-16","visibility":"PRIVATE"}
+]
+
