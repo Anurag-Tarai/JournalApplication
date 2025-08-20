@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/JournalApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/JournalApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalUpdateRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/JournalEntryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/JournalEntryRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +56,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2jmHqBDZFKCo9KzHbq3MeOi71OM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -82,6 +87,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="D:\SpringBootProjects\JournalApplication" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/Data" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.anurag.journalapp.controller" />

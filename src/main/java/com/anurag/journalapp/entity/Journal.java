@@ -63,8 +63,6 @@ public class Journal {
     @Transient
     private Double moodScore;           // -1..1 or 0..1 (decide convention)
 
-
-
     @Builder.Default
     private Visibility visibility = Visibility.PRIVATE;
 
