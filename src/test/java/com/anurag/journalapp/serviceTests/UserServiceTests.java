@@ -17,14 +17,6 @@ public class UserServiceTests {
     @Autowired
     private UserRepository userRepository;
 
-    @ValueSource(strings={
-            "sujit",
-            "admin"
-    })
-//    public void findByUserNameTest(String name){
-//        assertNotNull(userRepository.findByUserName(name));
-//    }
-
     @ParameterizedTest
     @CsvSource({
             "1,2,3",
