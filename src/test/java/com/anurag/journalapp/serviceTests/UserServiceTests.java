@@ -14,9 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest // to start spring application context
 public class UserServiceTests {
 
-    @Autowired
-    private UserRepository userRepository;
-
     @ParameterizedTest
     @CsvSource({
             "1,2,3",
