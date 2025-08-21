@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/JournalApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/JournalApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/JournalEntryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/JournalEntryRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/anurag/journalapp/serviceTests/UserServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/anurag/journalapp/serviceTests/UserServiceTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +91,7 @@
       <recent name="com.anurag.journalapp.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JournalApp">
+  <component name="RunManager" selected="JUnit.UserServiceTests">
     <configuration name="JournalApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.JournalApp" />
       <module name="JournalAppPractice" />
@@ -160,8 +153,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JournalApp" />
         <item itemvalue="JUnit.UserServiceTests" />
+        <item itemvalue="Application.JournalApp" />
         <item itemvalue="JUnit.UserServiceTests.test" />
         <item itemvalue="JUnit.JournalAppPracticeApplicationTests" />
       </list>
