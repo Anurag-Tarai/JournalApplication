@@ -1,0 +1,116 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UserInsight</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anurag.journalapp.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: UserInsight (com.anurag.journalapp.entity)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">UserInsight</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.anurag.journalapp.entity;
+&nbsp;
+&nbsp;import com.anurag.journalapp.enums.InsightPeriod;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+&nbsp;import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+&nbsp;import lombok.*;
+&nbsp;import org.bson.types.ObjectId;
+&nbsp;import org.springframework.data.annotation.CreatedDate;
+&nbsp;import org.springframework.data.annotation.Id;
+&nbsp;import org.springframework.data.mongodb.core.index.CompoundIndex;
+&nbsp;import org.springframework.data.mongodb.core.index.Indexed;
+&nbsp;import org.springframework.data.mongodb.core.mapping.Document;
+&nbsp;
+&nbsp;import java.time.Instant;
+&nbsp;import java.time.LocalDate;
+&nbsp;
+&nbsp;@Document(collection = &quot;user_insights&quot;)
+&nbsp;@Getter
+&nbsp;@Setter
+&nbsp;@NoArgsConstructor
+&nbsp;@AllArgsConstructor
+&nbsp;@Builder
+&nbsp;@CompoundIndex(
+&nbsp;        name = &quot;user_period_start_idx_v2&quot;,
+&nbsp;        def = &quot;{&#39;userId&#39;: 1, &#39;period&#39;: 1, &#39;periodStart&#39;: -1}&quot;
+&nbsp;)
+&nbsp;public class UserInsight {
+&nbsp;    @Id
+&nbsp;    @JsonSerialize(using = ToStringSerializer.class)
+&nbsp;    private ObjectId id;
+&nbsp;
+&nbsp;    @Indexed
+&nbsp;    @JsonSerialize(using = ToStringSerializer.class)
+&nbsp;    private ObjectId userId;
+&nbsp;
+&nbsp;    private InsightPeriod period;
+&nbsp;    private LocalDate periodStart;
+&nbsp;    private LocalDate periodEnd;
+&nbsp;
+&nbsp;    private InsightData data;
+&nbsp;    private String aiGeneratedSummary;
+&nbsp;
+&nbsp;    @CreatedDate
+&nbsp;    private Instant createdAt;
+&nbsp;
+&nbsp;    private boolean processed;
+&nbsp;    private String processingError;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-28 13:28</div>
+</div>
+</body>
+</html>

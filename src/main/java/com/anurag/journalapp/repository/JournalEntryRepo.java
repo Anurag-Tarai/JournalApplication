@@ -3,9 +3,12 @@ import com.anurag.journalapp.entity.Journal;
 import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 public interface JournalEntryRepo extends MongoRepository<Journal, ObjectId> {
@@ -31,4 +34,17 @@ public interface JournalEntryRepo extends MongoRepository<Journal, ObjectId> {
     Page<Journal> findByUserIdAndArchivedFalseAndEntryDateBetween(
             ObjectId userId, LocalDate startDate, LocalDate endDate, Pageable pageable
     );
+
+    // Add these methods to your existing JournalRepository interface
+
+    @Query("{'userId': ?0, 'entryDate': {$gte: ?1, $lte: ?2}, 'archived': false}")
+    List<Journal> findByUserIdAndEntryDateBetweenAndArchivedFalse(
+            ObjectId userId, LocalDate startDate, LocalDate endDate);
+
+    @Aggregation(pipeline = {
+            "{ $group: { _id: '$userId' } }",
+            "{ $project: { _id: 1 } }"
+    })
+    List<ObjectId> findDistinctUserIds();
+
 }

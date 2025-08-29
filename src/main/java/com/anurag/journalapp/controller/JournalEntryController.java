@@ -28,8 +28,6 @@ public class JournalEntryController {
 
     final private UserRepository userRepository;
 
-
-
     @PostMapping
     public ResponseEntity<JournalResponse> createJournal(
             @Valid @RequestBody JournalCreateRequest request,
