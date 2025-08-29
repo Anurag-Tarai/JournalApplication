@@ -2,7 +2,7 @@
 //
 //import com.anurag.journalapp.entity.User;
 //import com.anurag.journalapp.repository.UserRepository;
-//import com.anurag.journalapp.service.UserService;
+//import com.anurag.journalapp.service.AuthService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@
 //    @Autowired
 //    UserRepository userRepository;
 //    @Autowired
-//    UserService userService;
+//    AuthService userService;
 //
 //    @GetMapping("/all-users")
 //    public ResponseEntity<?> getAllUsers(){

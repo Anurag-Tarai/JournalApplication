@@ -1,7 +1,7 @@
 //package com.anurag.journalapp.controller;
 //
 //import com.anurag.journalapp.entity.User;
-//import com.anurag.journalapp.service.UserService;
+//import com.anurag.journalapp.service.AuthService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.security.core.Authentication;
@@ -12,7 +12,7 @@
 //@RequestMapping("/user")
 //public class UserController {
 //    @Autowired
-//    private UserService userService;
+//    private AuthService userService;
 //
 //
 //    @PutMapping

@@ -1,0 +1,290 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > JournalEntryService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anurag.journalapp.service</a>
+</div>
+
+<h1>Coverage Summary for Class: JournalEntryService (com.anurag.journalapp.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JournalEntryService</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/61)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.anurag.journalapp.service;
+&nbsp;
+&nbsp;import com.anurag.journalapp.dto.request.JournalCreateRequest;
+&nbsp;import com.anurag.journalapp.dto.request.JournalUpdateRequest;
+&nbsp;import com.anurag.journalapp.dto.response.JournalResponse;
+&nbsp;import com.anurag.journalapp.entity.Journal;
+&nbsp;import com.anurag.journalapp.enums.Visibility;
+&nbsp;import com.anurag.journalapp.repository.JournalEntryRepo;
+&nbsp;import com.anurag.journalapp.repository.UserRepository;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.bson.types.ObjectId;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.Pageable;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.stereotype.Component;
+&nbsp;import org.springframework.util.StringUtils;
+&nbsp;import org.springframework.web.server.ResponseStatusException;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Component
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class JournalEntryService {
+&nbsp;
+&nbsp;    final private JournalEntryRepo journalEntryRepo;
+&nbsp;
+&nbsp;    final private UserRepository userRepository;
+&nbsp;
+&nbsp;    public JournalResponse create(JournalCreateRequest request, ObjectId userId) {
+&nbsp;        // Validate user exists
+<b class="nc">&nbsp;        if (!userRepository.existsById(userId)) {</b>
+<b class="nc">&nbsp;            throw new IllegalArgumentException(&quot;User not found&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Database normalization : is about structuring data storage.
+&nbsp;        // Input normalization : is about cleaning data values before storing them.
+&nbsp;
+&nbsp;        // Normalize and validate inputs
+&nbsp;        // Normalization here refers to cleaning (e.g., trimming spaces, handling nulls) and standardizing user input to maintain consistency and avoid bad data in the database.
+<b class="nc">&nbsp;        String title = request.getTitle().trim();</b>
+<b class="nc">&nbsp;        String content = request.getContent() != null ? request.getContent().trim() : &quot;&quot;;</b>
+&nbsp;
+&nbsp;        //  Set defaults
+<b class="nc">&nbsp;        LocalDate entryDate = request.getEntryDate() != null ?</b>
+<b class="nc">&nbsp;                request.getEntryDate() : LocalDate.now();</b>
+&nbsp;
+<b class="nc">&nbsp;        Visibility visibility = request.getVisibility() != null ?</b>
+<b class="nc">&nbsp;                request.getVisibility() : Visibility.PRIVATE;</b>
+&nbsp;
+&nbsp;        // Build entity
+<b class="nc">&nbsp;        Journal journal = Journal.builder()</b>
+<b class="nc">&nbsp;                .userId(userId)</b>
+<b class="nc">&nbsp;                .title(title)</b>
+<b class="nc">&nbsp;                .content(content)</b>
+<b class="nc">&nbsp;                .entryDate(entryDate)</b>
+<b class="nc">&nbsp;                .visibility(visibility)</b>
+<b class="nc">&nbsp;                .archived(false)</b>
+<b class="nc">&nbsp;                .build();</b>
+&nbsp;
+&nbsp;        // Save entity
+<b class="nc">&nbsp;        Journal saved = journalEntryRepo.save(journal);</b>
+&nbsp;
+&nbsp;        // Build and return response
+<b class="nc">&nbsp;        return mapToResponse(saved);</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * List active journal entries for a user, optionally filtered by search term.
+&nbsp;     * @param userId ID of the authenticated user
+&nbsp;     * @param search optional search string for title/content
+&nbsp;     * @param pageable pagination and sort information
+&nbsp;     * @return paginated response DTOs
+&nbsp;     */
+&nbsp;    public Page&lt;JournalResponse&gt; list(ObjectId userId, String search, Pageable pageable) {
+<b class="nc">&nbsp;        Page&lt;Journal&gt; page = StringUtils.hasText(search)</b>
+&nbsp;                // Search title or content (case-insensitive)
+<b class="nc">&nbsp;                ? journalEntryRepo.findByUserIdAndArchivedFalseAndTitleContainingIgnoreCaseOrUserIdAndArchivedFalseAndContentContainingIgnoreCase(</b>
+<b class="nc">&nbsp;                userId, search.trim(), userId, search.trim(), pageable)</b>
+&nbsp;                // Default: list non-archived entries
+<b class="nc">&nbsp;                : journalEntryRepo.findByUserIdAndArchivedFalse(userId, pageable);</b>
+<b class="nc">&nbsp;        return page.map(this::mapToResponse);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get a single journal entry by ID for the given user.
+&nbsp;     * @param userId ID of the authenticated user
+&nbsp;     * @param journalId ID of the journal entry
+&nbsp;     * @return the entry as a response DTO
+&nbsp;     */
+&nbsp;    public JournalResponse get(ObjectId userId, ObjectId journalId) {
+<b class="nc">&nbsp;        Journal journal = journalEntryRepo.findByIdAndUserId(journalId, userId)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.NOT_FOUND, &quot;Journal not found&quot;));</b>
+<b class="nc">&nbsp;        return mapToResponse(journal);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Update an existing journal entry for the given user.
+&nbsp;     * Only non-null fields in the request are updated.
+&nbsp;     * @param userId ID of the authenticated user
+&nbsp;     * @param journalId ID of the journal entry
+&nbsp;     * @param req DTO containing updated fields
+&nbsp;     * @return the updated entry as a response DTO
+&nbsp;     * @throws IllegalArgumentException if not found or not owned by user
+&nbsp;     */
+&nbsp;    public JournalResponse update(ObjectId userId, ObjectId journalId, JournalUpdateRequest req) {
+<b class="nc">&nbsp;        Journal journal = journalEntryRepo.findByIdAndUserId(journalId, userId)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Journal not found&quot;));</b>
+&nbsp;
+&nbsp;        // Apply updates if present
+<b class="nc">&nbsp;        if (StringUtils.hasText(req.getTitle())) {</b>
+<b class="nc">&nbsp;            journal.setTitle(req.getTitle().trim());</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (req.getContent() != null) {</b>
+<b class="nc">&nbsp;            journal.setContent(req.getContent().trim());</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (req.getEntryDate() != null) {</b>
+<b class="nc">&nbsp;            journal.setEntryDate(req.getEntryDate());</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (req.getVisibility() != null) {</b>
+<b class="nc">&nbsp;            journal.setVisibility(req.getVisibility());</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Save and map to DTO
+<b class="nc">&nbsp;        Journal updated = journalEntryRepo.save(journal);</b>
+<b class="nc">&nbsp;        return mapToResponse(updated);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Soft-delete (archive) a journal entry for the given user.
+&nbsp;     * @param userId ID of the authenticated user
+&nbsp;     * @param journalId ID of the journal entry
+&nbsp;     * @throws IllegalArgumentException if not found or not owned by user
+&nbsp;     */
+&nbsp;    public void archive(ObjectId userId, ObjectId journalId) {
+<b class="nc">&nbsp;        Journal journal = journalEntryRepo.findByIdAndUserId(journalId, userId)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Journal not found&quot;));</b>
+<b class="nc">&nbsp;        journal.setArchived(true);</b>
+<b class="nc">&nbsp;        journalEntryRepo.save(journal);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    // Hard-delete a journal
+&nbsp;    public void delete(ObjectId userId, ObjectId journalId) {
+<b class="nc">&nbsp;        Journal j = journalEntryRepo.findByIdAndUserId(journalId, userId)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Journal not found&quot;));</b>
+<b class="nc">&nbsp;        journalEntryRepo.delete(j);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Helper: map entity to response DTO
+&nbsp;    private JournalResponse mapToResponse(Journal journal) {
+<b class="nc">&nbsp;        JournalResponse response = new JournalResponse();</b>
+<b class="nc">&nbsp;        response.setId(journal.getId().toHexString());</b>
+<b class="nc">&nbsp;        response.setTitle(journal.getTitle());</b>
+<b class="nc">&nbsp;        response.setContent(journal.getContent());</b>
+<b class="nc">&nbsp;        response.setEntryDate(journal.getEntryDate());</b>
+<b class="nc">&nbsp;        response.setCreatedAt(journal.getCreatedAt());</b>
+<b class="nc">&nbsp;        response.setUpdatedAt(journal.getUpdatedAt());</b>
+&nbsp;
+&nbsp;        // Compute word count
+<b class="nc">&nbsp;        Integer wordCount = (journal.getContent() == null || journal.getContent().isBlank())</b>
+<b class="nc">&nbsp;                ? 0</b>
+<b class="nc">&nbsp;                : journal.getContent().trim().split(&quot;\\s+&quot;).length;</b>
+<b class="nc">&nbsp;        response.setWordCount(wordCount);</b>
+&nbsp;
+&nbsp;        // Set other fields
+<b class="nc">&nbsp;        response.setMoodScore(journal.getMoodScore()); // null for now</b>
+<b class="nc">&nbsp;        response.setTags(journal.getTags() != null ? journal.getTags() : List.of());</b>
+<b class="nc">&nbsp;        response.setVisibility(journal.getVisibility());</b>
+<b class="nc">&nbsp;        response.setArchived(journal.isArchived());</b>
+&nbsp;
+<b class="nc">&nbsp;        return response;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-28 13:28</div>
+</div>
+</body>
+</html>
