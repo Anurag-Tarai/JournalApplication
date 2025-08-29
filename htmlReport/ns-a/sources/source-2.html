@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > JournalEntryRepo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anurag.journalapp.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: JournalEntryRepo (com.anurag.journalapp.repository)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">JournalEntryRepo</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.anurag.journalapp.repository;
+&nbsp;import com.anurag.journalapp.entity.Journal;
+&nbsp;import org.bson.types.ObjectId;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.Pageable;
+&nbsp;import org.springframework.data.mongodb.repository.Aggregation;
+&nbsp;import org.springframework.data.mongodb.repository.MongoRepository;
+&nbsp;import org.springframework.data.mongodb.repository.Query;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;public interface JournalEntryRepo extends MongoRepository&lt;Journal, ObjectId&gt; {
+&nbsp;
+&nbsp;    // Fetch a single journal ensuring ownership
+&nbsp;    Optional&lt;Journal&gt; findByIdAndUserId(ObjectId id, ObjectId userId);
+&nbsp;
+&nbsp;    // List active (non-archived) journals for a user
+&nbsp;    Page&lt;Journal&gt; findByUserIdAndArchivedFalse(ObjectId userId, Pageable pageable);
+&nbsp;
+&nbsp;    // Simple search over title OR content (active only)
+&nbsp;    // Note: Spring Data “OR” will apply to the two trailing predicates; both are scoped by “archived=false”
+&nbsp;    Page&lt;Journal&gt; findByUserIdAndArchivedFalseAndTitleContainingIgnoreCaseOrUserIdAndArchivedFalseAndContentContainingIgnoreCase(
+&nbsp;            ObjectId userId1, String titleSearch,
+&nbsp;            ObjectId userId2, String contentSearch,
+&nbsp;            Pageable pageable);
+&nbsp;
+&nbsp;
+&nbsp;    // OPTIONAL: list all journals (including archived) for a user (useful if you later add includeArchived)
+&nbsp;    Page&lt;Journal&gt; findByUserId(ObjectId userId, Pageable pageable);
+&nbsp;
+&nbsp;    // OPTIONAL: date-range filter for active journals (handy if you add startDate/endDate filters)
+&nbsp;    Page&lt;Journal&gt; findByUserIdAndArchivedFalseAndEntryDateBetween(
+&nbsp;            ObjectId userId, LocalDate startDate, LocalDate endDate, Pageable pageable
+&nbsp;    );
+&nbsp;
+&nbsp;    // Add these methods to your existing JournalRepository interface
+&nbsp;
+&nbsp;    @Query(&quot;{&#39;userId&#39;: ?0, &#39;entryDate&#39;: {$gte: ?1, $lte: ?2}, &#39;archived&#39;: false}&quot;)
+&nbsp;    List&lt;Journal&gt; findByUserIdAndEntryDateBetweenAndArchivedFalse(
+&nbsp;            ObjectId userId, LocalDate startDate, LocalDate endDate);
+&nbsp;
+&nbsp;    @Aggregation(pipeline = {
+&nbsp;            &quot;{ $group: { _id: &#39;$userId&#39; } }&quot;,
+&nbsp;            &quot;{ $project: { _id: 1 } }&quot;
+&nbsp;    })
+&nbsp;    List&lt;ObjectId&gt; findDistinctUserIds();
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-28 13:28</div>
+</div>
+</body>
+</html>

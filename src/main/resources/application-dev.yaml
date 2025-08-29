@@ -1,0 +1,19 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: JournalAppPractice
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/journal_db
+      auto-index-creation: true
+
+
+server:
+  port: 9090
+
+app:
+  jwt:
+    secret: devSecretKeyCha222@#@#$@jdjflsdjsdfngeThis123
+    expiration: 86400

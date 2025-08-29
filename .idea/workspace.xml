@@ -6,8 +6,44 @@
   <component name="ChangeListManager">
     <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/Data/journal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/Data/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/Data/user.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/Data/user2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/JournalApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/MongoConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/config/SwaggerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/JournalEntryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/PublicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/AuthRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalCreateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/JournalUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/request/RegisterRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/response/AuthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/response/JournalResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/dto/response/RegisterResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/Journal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/enums/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/enums/Visibility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/JournalEntryRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/security/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/security/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/security/SecurityUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/JournalEntryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anurag/journalapp/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/anurag/journalapp/serviceTests/UserServiceTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +53,16 @@
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/htmlReport" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Enum" />
         <option value="Kotlin Class" />
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -62,16 +102,20 @@
   &quot;keyToString&quot;: {
     &quot;Application.JournalApp.executor&quot;: &quot;Run&quot;,
     &quot;Application.JournalAppPractice.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JournalAppPracticeApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTests.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AuthServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.JournalAppPracticeApplicationTests.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceTests.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceTests.test.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceTests.test3.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.JournalAppPractice [verify].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anurag/Spring-practice-projects/JournalApplication&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anurag/Spring-practice-projects/JournalApplication/src/main/resources&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -107,6 +151,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JournalAppPractice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anurag.journalapp.controllerTest.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anurag.journalapp.controllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.controllerTest.AuthControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JournalAppPractice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anurag.journalapp.serviceTests.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anurag.journalapp.serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.serviceTests.AuthServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JournalAppPracticeApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JournalAppPractice" />
       <extension name="coverage">
@@ -132,23 +208,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.anurag.journalapp.serviceTests" />
       <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.serviceTests.UserServiceTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JournalAppPractice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.anurag.journalapp.serviceTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.anurag.journalapp.serviceTests" />
-      <option name="MAIN_CLASS_NAME" value="com.anurag.journalapp.serviceTests.UserServiceTests" />
-      <option name="METHOD_NAME" value="test(int,int,int)" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,9 +217,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.JournalApp" />
-        <item itemvalue="JUnit.UserServiceTests" />
-        <item itemvalue="JUnit.UserServiceTests.test" />
+        <item itemvalue="JUnit.AuthServiceTest" />
+        <item itemvalue="JUnit.AuthControllerTest" />
         <item itemvalue="JUnit.JournalAppPracticeApplicationTests" />
+        <item itemvalue="JUnit.UserServiceTests" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +280,50 @@
           <properties class="com.mongodb.DuplicateKeyException" package="com.mongodb" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/anurag/journalapp/controllerTest/AuthControllerTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/anurag/journalapp/controllerTest/AuthControllerTest.java</url>
+          <line>77</line>
+          <properties class="com.anurag.journalapp.controllerTest.AuthControllerTest.RegisterTests" method="shouldRegisterUserSuccessfully">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/anurag/journalapp/controllerTest/AuthControllerTest.java</url>
+          <line>111</line>
+          <properties class="com.anurag.journalapp.controllerTest.AuthControllerTest.LoginTests" method="shouldLoginUserSuccessfully">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/JournalApplication$JournalAppPracticeApplicationTests.exec" NAME="JournalAppPracticeApplicationTests Coverage Results" MODIFIED="1756448824453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.anurag.journalapp.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/JournalApplication$AuthControllerTest.exec" NAME="AuthControllerTest Coverage Results" MODIFIED="1756451337539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JournalApplication$AuthControllerTest.ic" NAME="AuthControllerTest Coverage Results" MODIFIED="1756381704376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JournalApplication$AuthServiceTest.exec" NAME="AuthServiceTest Coverage Results" MODIFIED="1756461814827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JournalApplication$UserServiceTests.ic" NAME="UserServiceTests Coverage Results" MODIFIED="1756382037226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JournalApplication$UserServiceTests_test.ic" NAME="UserServiceTests.test Coverage Results" MODIFIED="1756366325457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.anurag.journalapp.serviceTests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/JournalApplication$UserServiceTests.exec" NAME="UserServiceTests Coverage Results" MODIFIED="1756432951671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/JournalApplication$UserServiceTests_test3.ic" NAME="UserServiceTests.test3 Coverage Results" MODIFIED="1756365512236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.anurag.journalapp.serviceTests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/JournalApplication$JournalAppPracticeApplicationTests.ic" NAME="JournalAppPracticeApplicationTests Coverage Results" MODIFIED="1756381754440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.anurag.journalapp.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/JournalApplication$AuthServiceTest.ic" NAME="AuthServiceTest Coverage Results" MODIFIED="1756462672117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
