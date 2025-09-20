@@ -8,7 +8,17 @@ spring:
     mongodb:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
-
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: anurag.dev051@gmail.com
+    password: vafd rwyb lcrf spho
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 server:
   port: 8081
