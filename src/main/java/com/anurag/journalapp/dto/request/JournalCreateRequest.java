@@ -1,6 +1,7 @@
 package com.anurag.journalapp.dto.request;
 
 import com.anurag.journalapp.entity.Journal;
+import com.anurag.journalapp.enums.Sentiment;
 import com.anurag.journalapp.enums.Visibility;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -23,6 +24,8 @@ public class JournalCreateRequest {
 
     // Optional: allow client-specified logical date; default to today if null
     private LocalDate entryDate;
+
+    private Sentiment sentiment;
 
     // Optional: allow visibility selection; default PRIVATE in service if null
     private Visibility visibility;

@@ -89,12 +89,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.ai/spring-ai-huggingface-spring-boot-starter -->
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-huggingface-spring-boot-starter</artifactId>
-            <version>1.0.0-M5</version>
-        </dependency>
         <!-- NEW: For scheduling -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -110,6 +104,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>4.0.0-M3</version>
         </dependency>
 	</dependencies>
 

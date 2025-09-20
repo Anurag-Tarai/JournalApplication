@@ -1,5 +1,6 @@
 package com.anurag.journalapp.dto.response;
 
+import com.anurag.journalapp.enums.Sentiment;
 import com.anurag.journalapp.enums.Visibility;
 import lombok.*;
 
@@ -29,7 +30,7 @@ public class JournalResponse {
     private Integer wordCount;          // compute on save/update
 
 
-    private Double moodScore;           // -1..1 or 0..1 (decide convention)
+    private Sentiment sentiment;
 
 
     private List<String> tags;          // e.g., ["gratitude","work","health"]

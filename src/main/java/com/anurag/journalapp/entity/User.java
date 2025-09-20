@@ -38,6 +38,8 @@ public class User {
     @JsonIgnore
     private String passwordHash;
 
+    private boolean sentimentAnalysis;
+
     @Builder.Default
     private Set<UserRole> roles = EnumSet.of(UserRole.USER);
 

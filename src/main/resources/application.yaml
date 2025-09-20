@@ -1,3 +1,11 @@
 spring:
   profiles:
     active: prod
+
+quote:
+  api:
+    key: 3q7NA1mopp9tcbcJbJ2IQw==yejcVCNsQclMpqF8
+
+wheather:
+  api:
+    key: 7cc657771cf7092cd231670bb6cc5341

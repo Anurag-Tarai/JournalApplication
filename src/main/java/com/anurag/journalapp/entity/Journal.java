@@ -1,6 +1,7 @@
 package com.anurag.journalapp.entity;
 
 
+import com.anurag.journalapp.enums.Sentiment;
 import com.anurag.journalapp.enums.Visibility;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
@@ -55,12 +56,10 @@ public class Journal {
     private List<String> tags;          // e.g., ["gratitude","work","health"]
 
     // Optional metadata for future features
+    private Sentiment sentiment;
 
     @Transient
     private Integer wordCount;          // compute on save/update
-
-    @Transient
-    private Double moodScore;           // -1..1 or 0..1 (decide convention)
 
     @Builder.Default
     private Visibility visibility = Visibility.PRIVATE;
