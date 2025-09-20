@@ -4,6 +4,7 @@ import com.anurag.journalapp.dto.request.JournalCreateRequest;
 import com.anurag.journalapp.dto.request.JournalUpdateRequest;
 import com.anurag.journalapp.dto.response.JournalResponse;
 import com.anurag.journalapp.entity.Journal;
+import com.anurag.journalapp.enums.Sentiment;
 import com.anurag.journalapp.enums.Visibility;
 import com.anurag.journalapp.repository.JournalEntryRepo;
 import com.anurag.journalapp.repository.UserRepository;
@@ -47,6 +48,7 @@ public class JournalEntryService {
 
         Visibility visibility = request.getVisibility() != null ?
                 request.getVisibility() : Visibility.PRIVATE;
+        Sentiment sentiment = request.getSentiment()!= null? request.getSentiment():Sentiment.HAPPY;
 
         // Build entity
         Journal journal = Journal.builder()
@@ -55,6 +57,7 @@ public class JournalEntryService {
                 .content(content)
                 .entryDate(entryDate)
                 .visibility(visibility)
+                .sentiment(sentiment)
                 .archived(false)
                 .build();
 
@@ -163,7 +166,7 @@ public class JournalEntryService {
         response.setWordCount(wordCount);
 
         // Set other fields
-        response.setMoodScore(journal.getMoodScore()); // null for now
+        response.setSentiment(journal.getSentiment()); // null for now
         response.setTags(journal.getTags() != null ? journal.getTags() : List.of());
         response.setVisibility(journal.getVisibility());
         response.setArchived(journal.isArchived());
