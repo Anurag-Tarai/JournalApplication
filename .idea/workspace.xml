@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="fb784df2-24ac-47f8-b39d-2fb573a7223c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,34 +70,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.JournalApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JournalAppPractice.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.AuthServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.EmailServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JournalAppPracticeApplicationTests.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserRepositoryImpTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTests.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserServiceTests.test.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserServiceTests.test3.executor&quot;: &quot;Coverage&quot;,
-    &quot;Maven.JournalAppPractice [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anurag/Spring-practice-projects/JournalApplication/src/main/resources&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24740623&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JournalApp.executor": "Run",
+    "Application.JournalAppPractice.executor": "Run",
+    "JUnit.AuthControllerTest.executor": "Debug",
+    "JUnit.AuthServiceTest.executor": "Coverage",
+    "JUnit.EmailServiceTest.executor": "Run",
+    "JUnit.JournalAppPracticeApplicationTests.executor": "Coverage",
+    "JUnit.UserRepositoryImpTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Debug",
+    "JUnit.UserServiceTests.executor": "Coverage",
+    "JUnit.UserServiceTests.test.executor": "Coverage",
+    "JUnit.UserServiceTests.test3.executor": "Coverage",
+    "Maven.JournalAppPractice [verify].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Rebasing master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/anurag/Spring-practice-projects/JournalApplication/src/main/resources",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "settings.editor.splitter.proportion": "0.24740623"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -192,6 +189,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.JournalApp" />
+      <item itemvalue="JUnit.EmailServiceTest" />
+      <item itemvalue="JUnit.UserRepositoryImpTest" />
+      <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="JUnit.UserServiceTests" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.JournalApp" />
