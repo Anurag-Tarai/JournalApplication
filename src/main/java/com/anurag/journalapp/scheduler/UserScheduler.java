@@ -55,7 +55,14 @@ public class UserScheduler {
                     .map(Map.Entry::getKey)
                     .orElse(null);
 
-            emailService.sendMail(user.getEmail(), user.getFirstName() + " your mood of this week is: ", String.valueOf(mostOccurred));
+            String subject = user.getFirstName() + ", your mood of the week report is ready!";
+            String body = "Hello " + user.getFirstName() + ",\n\n" +
+                    "Your mood of this week is: " + mostOccurred + "\n\n" +
+                    "Keep tracking your mood and have a great week!\n\n" +
+                    "Regards,\nReflection Team";
+
+            emailService.sendMail(user.getEmail(), subject, body);
+
             System.out.println("User " + user.getFirstName() + " most common sentiment: " + mostOccurred);
         }
     }

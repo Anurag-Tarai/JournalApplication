@@ -8,19 +8,19 @@ spring:
     mongodb:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${SPRING_MAIL_USERNAME}
-    password: ${SPRING_MAIL_PASSWORD}
-    test-connection: false
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: ${SPRING_MAIL_USERNAME}
+#    password: ${SPRING_MAIL_PASSWORD}
+#    test-connection: false
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#
 server:
   port: 8081
 
