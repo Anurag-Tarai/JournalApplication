@@ -6,12 +6,23 @@ spring:
     name: JournalAppPractice
   data:
     mongodb:
-      uri: mongodb://localhost:27017/journal_db
+      uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
-
+  mail:
+    test-connection: false
+    host: smtp.gmail.com
+    port: 587
+    username: anurag.dev051@gmail.com
+    password: vafd rwyb lcrf spho
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 server:
-  port: 9090
+  port: 8081
 
 app:
   jwt:
