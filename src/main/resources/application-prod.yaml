@@ -5,6 +5,8 @@ spring:
   application:
     name: JournalAppPractice
   data:
+    redis:
+      url: redis://default:SvVZBbsguMeJexZjhWfQx5TDZbECitcL@redis-11922.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:11922
     mongodb:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true

@@ -1,6 +1,8 @@
 package com.anurag.journalapp.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
@@ -9,7 +11,9 @@ public class WheatherApiResponse {
     private Current current;
 
     @Data
-    public class Current{
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Current{
 
         public int temperature;
 

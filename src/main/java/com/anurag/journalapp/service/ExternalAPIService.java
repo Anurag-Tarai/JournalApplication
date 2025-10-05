@@ -26,40 +26,58 @@ public class ExternalAPIService {
 
     private final RestTemplate restTemplate;
 
-    public ExternalAPIService(RestTemplate restTemplate) {
+    private final RedisService redisService;
+
+
+    public ExternalAPIService(RestTemplate restTemplate, RedisService redisService) {
         this.restTemplate = restTemplate;
+        this.redisService = redisService;
     }
 
     public WheatherApiResponse getWheather(String city){
-        String finalApi = WHEATHER_API.replace("API_KEY", WHEATHER_API_KEY).replace("CITY", city);
 
-       ResponseEntity<WheatherApiResponse> response = restTemplate
-               .exchange(finalApi, HttpMethod.GET, null, WheatherApiResponse.class );
-      WheatherApiResponse wheatherApiResponse =  response.getBody();
-      return wheatherApiResponse;
+       WheatherApiResponse resp = redisService.
+               get("wheather_of_"+city, WheatherApiResponse.class);
+       if(resp!=null) return resp;
+       else{
+           String finalApi = WHEATHER_API.replace("API_KEY", WHEATHER_API_KEY).replace("CITY", city);
+           ResponseEntity<WheatherApiResponse> response = restTemplate
+                   .exchange(finalApi, HttpMethod.GET, null, WheatherApiResponse.class );
+           WheatherApiResponse body =  response.getBody();
+           if(body!=null){
+               redisService.set("wheather_of_"+city, body, 300l);
+           }
+           return body;
+       }
     }
 
     public QuoteResponse getQuote(){
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Api-Key", "3q7NA1mopp9tcbcJbJ2IQw==yejcVCNsQclMpqF8");
+        QuoteResponse resp = redisService.get("quote", QuoteResponse.class);
+        if(resp!=null){
+            return resp;
+        }else{
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("X-Api-Key", "3q7NA1mopp9tcbcJbJ2IQw==yejcVCNsQclMpqF8");
 
 // Wrap headers in HttpEntity (no body for GET request)
-        HttpEntity<String> entity = new HttpEntity<>(headers);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<QuoteResponse[]> response = restTemplate.exchange(
-                QUOTE_API,
-                HttpMethod.GET,
-                entity,
-                QuoteResponse[].class
-        );
+            ResponseEntity<QuoteResponse[]> response = restTemplate.exchange(
+                    QUOTE_API,
+                    HttpMethod.GET,
+                    entity,
+                    QuoteResponse[].class
+            );
 
-        QuoteResponse[] quoteResponses = response.getBody();
-        QuoteResponse quoteResponse = quoteResponses != null && quoteResponses.length > 0
-                ? quoteResponses[0]
-                : null;
-        return quoteResponse;
+            QuoteResponse[] quoteResponses = response.getBody();
+            QuoteResponse quoteResponse = quoteResponses != null && quoteResponses.length > 0
+                    ? quoteResponses[0]
+                    : null;
+            if(quoteResponse!=null){
+                redisService.set("quote", quoteResponse,300l);
+            }
+            return quoteResponse;
+        }
     }
-
 
 }

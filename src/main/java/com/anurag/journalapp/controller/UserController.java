@@ -36,7 +36,7 @@ public class UserController {
         String email = authentication.getName(); // email is username
 
         UserResponse userResponse = userService.getUserDetails(email);
-        WheatherApiResponse wheather = externalAPIService.getWheather("Nepal");
+        WheatherApiResponse wheather = externalAPIService.getWheather("Mumbai");
         QuoteResponse quote = externalAPIService.getQuote();
 
         StringBuilder greeting = new StringBuilder("Hi " + userResponse.getFirstName());
