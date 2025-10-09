@@ -32,9 +32,9 @@ public class UserScheduler {
     @Autowired
     JournalEntryRepo journalEntryRepo;
 
-//    @Scheduled(cron = "0 0 * * * *")
+    @Scheduled(cron = "0 0 * * * *")
 //    @Scheduled(cron = "0 0 9 * * SUN")
-    @Scheduled(cron = "* * * * * *")
+//    @Scheduled(cron = "0 * * * * *")
     public void fetchUserAndSendSAmail(){
         List<User> users = userRepositoryImp.getUsersForSA();
         for(User user: users){
