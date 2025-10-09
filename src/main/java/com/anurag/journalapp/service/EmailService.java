@@ -20,6 +20,9 @@ import java.io.IOException;
 @Slf4j
 public class EmailService {
 
+    @Autowired
+    private SendGrid sendGrid;
+
     public void sendMail(String to, String subject, String body) {
         try {
             // Verified sender
@@ -40,7 +43,6 @@ public class EmailService {
                             "</html>"
             );
 
-
             // Create Mail object
             Mail mail = new Mail();
             mail.setFrom(from);
@@ -55,14 +57,12 @@ public class EmailService {
             // Reply-To
             mail.setReplyTo(new Email("taraianurag2001@gmail.com", "Anurag Tarai"));
 
-            // Send email
-            SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
             Request request = new Request();
             request.setMethod(Method.POST);
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
 
-            Response response = sg.api(request);
+            Response response = sendGrid.api(request);
             log.info("Email sent with status: {}", response.getStatusCode());
             if (response.getStatusCode() >= 400) {
                 log.error("Failed to send email. Response: {}", response.getBody());

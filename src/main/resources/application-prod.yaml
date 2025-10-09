@@ -10,23 +10,24 @@ spring:
     mongodb:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
-#  mail:
-#    host: smtp.gmail.com
-#    port: 587
-#    username: ${SPRING_MAIL_USERNAME}
-#    password: ${SPRING_MAIL_PASSWORD}
-#    test-connection: false
-#    properties:
-#      mail:
-#        smtp:
-#          auth: true
-#          starttls:
-#            enable: true
-#
+
+quote:
+  api:
+    key: ${QUOTE_API_KEY}
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
+
+
 server:
-  port: 8081
+  port: 8080
 
 app:
   jwt:
     secret: devSecretKeyCha222@#@#$@jdjflsdjsdfngeThis123
     expiration: 86400
+
+sendgrid:
+  api-key: ${SENDGRID_API_KEY}
+

@@ -17,7 +17,7 @@ public class ExternalAPIService {
     @Value("${quote.api.key}")
     private String QU0TE_API_KEY;
 
-    @Value("${wheather.api.key}")
+    @Value("${weather.api.key}")
     private String WHEATHER_API_KEY;
 
     private  static final String QUOTE_API = "https://api.api-ninjas.com/v1/quotes";
