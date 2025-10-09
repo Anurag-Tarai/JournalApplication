@@ -13,11 +13,11 @@ spring:
 
 quote:
   api:
-    key: ${QUOTE_API_KEY}
+    key: ${QUOTE_API_KEY:dummy-quote-api-key}
 
 weather:
   api:
-    key: ${WEATHER_API_KEY}
+    key: ${WEATHER_API_KEY:weather-quote-api-key}
 
 
 server:
