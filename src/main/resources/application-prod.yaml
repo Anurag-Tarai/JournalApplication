@@ -29,5 +29,5 @@ app:
     expiration: 86400
 
 sendgrid:
-  api-key: ${SENDGRID_API_KEY}
+  api-key: ${SENDGRID_API_KEY:dummy-key-for-testing}
 
