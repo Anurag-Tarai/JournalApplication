@@ -5,15 +5,18 @@ spring:
   application:
     name: JournalAppPractice
   data:
+    redis:
+      url: redis://default:SvVZBbsguMeJexZjhWfQx5TDZbECitcL@redis-11922.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:11922
     mongodb:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
+
   mail:
     test-connection: false
     host: smtp.gmail.com
     port: 587
     username: anurag.dev051@gmail.com
-    password: vafd rwyb lcrf spho
+    password: nlnw jgqc rauf iald
     properties:
       mail:
         smtp:
@@ -21,10 +24,24 @@ spring:
           starttls:
             enable: true
 
+quote:
+  api:
+    key: ${QUOTE_API_KEY:dummy-quote-api-key}
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY:weather-quote-api-key}
+
+
 server:
-  port: 8081
+  port: 8080
 
 app:
   jwt:
     secret: devSecretKeyCha222@#@#$@jdjflsdjsdfngeThis123
     expiration: 86400
+
+sendgrid:
+  api-key: ${SENDGRID_API_KEY:dummy-key-for-testing}
+
+

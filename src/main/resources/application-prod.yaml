@@ -11,6 +11,21 @@ spring:
       uri: mongodb+srv://sdflkjsldf:6MzvqqxfWqX9UFdJ@cluster0.lt8gotz.mongodb.net/journal_db?retryWrites=true&w=majority
       auto-index-creation: true
 
+  mail:
+    test-connection: false
+    host: smtp.gmail.com
+    port: 587
+    username: anurag.dev051@gmail.com
+    password: nlnw jgqc rauf iald
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+mail:
+    from: ${spring.mail.username}
+
 quote:
   api:
     key: ${QUOTE_API_KEY:dummy-quote-api-key}
@@ -30,4 +45,5 @@ app:
 
 sendgrid:
   api-key: ${SENDGRID_API_KEY:dummy-key-for-testing}
+
 

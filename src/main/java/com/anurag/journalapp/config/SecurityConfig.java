@@ -37,7 +37,9 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/swagger-resources/**",
-                                "/webjars/**","/api/huggingface/**","/api/insights/**","/api/generate-text/**").permitAll()
+                                "/webjars/**","/api/huggingface/**",
+                                "/api/insights/**","/api/generate-text/**"
+                        ,"api/mail/**").permitAll()
                            .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
 
