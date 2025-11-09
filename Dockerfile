@@ -1,29 +1,29 @@
- # Use a base image that includes Java and Maven
-FROM maven:3.8.4-openjdk-17-slim AS build
+# ---------- Stage 1: Build ----------
+FROM maven:3.9.1-eclipse-temurin-17 AS build
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the entire project directory into the container
-COPY . .
+# Copy pom.xml and download dependencies first (caching)
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Build the project using Maven
-RUN mvn clean package
+# Copy all source code
+COPY src ./src
 
-# Expose the port that the application will run on
-EXPOSE 8080
+# Package the application (skip tests if needed)
+RUN mvn package -DskipTests
 
-# Second stage: Use a smaller base image to run the Java application
-FROM openjdk:17-jdk-alpine
+# ---------- Stage 2: Runtime ----------
+FROM eclipse-temurin:17-jdk
 
-# Set the working directory in the final image
 WORKDIR /app
 
-# Copy the jar file from the build stage to the final image
-COPY --from=build /app/target/JournalAppPractice-0.0.1-SNAPSHOT.jar /app/app.jar
+# Copy the built jar from the previous stage
+COPY --from=build /app/target/*.jar app.jar
 
-# Verify the JAR file is copied
-RUN ls -l /app
+# Expose port (8443 in your current Dockerfile)
+EXPOSE 8443
 
-# Command to run the Spring Boot application
-CMD ["java", "-jar", "app.jar"]
+# Run the Spring Boot app
+ENTRYPOINT ["java", "-jar", "app.jar"]
